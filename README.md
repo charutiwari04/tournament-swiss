@@ -18,10 +18,11 @@ This project showcases how to use Python code that uses the relational database 
 5.  Start the Vagrant VM by writing commands as "vagrant up" and "vagrant ssh"
 6. Once the Database Schema queries are written in tournament.sql, Use command following command to execute them:
 
-###$ psql -i tournament.sql 
+$ psql -i tournament.sql 
+
 7. When all the functions in the tournament.py file are complete and ready to run. Run following command to test the implementation:
 
-###$ python tournament_test.py
+$ python tournament_test.py
 
 If this command gives final result as "Success!  All tests pass!", it means code is good, Otherwise instructions will be given along with the error.
 
