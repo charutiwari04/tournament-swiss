@@ -5,7 +5,13 @@ This project showcases how to use Python code that uses the relational database 
 ## Steps Involved in completing the project
 1. Create the Database Schema.
 2. Create Tables which follow the relational database normal forms.
-3. Write various python code for connecting to the database, Manipulating the database and also login for pairing the players according to swiss tournament rules.
+3. Write various python code for:
+    
+    a.  connecting to the database. 
+    
+    b.  Manipulating the database by using SELECT or DELETE or INSERT SQL queries. 
+    
+    c.  Logic for pairing the players according to Swiss tournament rules.
 
 ## Skills involved
 1. Python
