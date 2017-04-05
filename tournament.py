@@ -18,7 +18,7 @@ def connect(database_name="tournament"):
 def deleteMatches():
     """Remove all the match records from the database."""
     conn, cursor = connect()
-    query = """ DELETE FROM Matches """
+    query = """ TRUNCATE TABLE Matches; """
     cursor.execute(query)
     conn.commit()
     conn.close()
@@ -26,7 +26,7 @@ def deleteMatches():
 def deletePlayers():
     """Remove all the player records from the database."""
     conn, cursor = connect()
-    query = """ DELETE FROM Players """
+    query = """ TRUNCATE TABLE Players CASCADE; """
     cursor.execute(query)
     conn.commit()
     conn.close()
@@ -71,13 +71,7 @@ def playerStandings():
         matches: the number of matches the player has played
     """
     conn, cursor = connect()
-    query = """
-            select p.id, p.name,
-            (select count(*) from Matches as m where m.winner = p.id) as wins,
-            (select count(*) from Matches as mm where mm.winner = p.id or mm.loser = p.id) as matches
-            from Players as p
-            order by wins desc;
-            """
+    query = """select * from vw_pl_stand;"""
     cursor.execute(query)
     results = cursor.fetchall()
     return results

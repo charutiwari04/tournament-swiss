@@ -14,3 +14,10 @@
  CREATE TABLE Matches(winner integer references Players(id),
 					loser integer references Players(id),
 					PRIMARY KEY(winner, loser));
+ DROP VIEW IF EXISTS vw_pl_stand;
+ CREATE VIEW vw_pl_stand AS
+	SELECT p.id, p.name,
+            (SELECT count(*) FROM Matches AS m WHERE m.winner = p.id) AS wins,
+            (SELECT count(*) FROM Matches AS mm WHERE mm.winner = p.id or mm.loser = p.id) AS matches
+            FROM Players AS p
+            ORDER BY wins DESC;
